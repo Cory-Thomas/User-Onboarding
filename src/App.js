@@ -159,7 +159,6 @@ console.log(users)
       />
       <StyledSection>
       {users.map(user => {
-        console.log(user)
         if ( user.terms === true){
           return (
             <div key={user.id} class="container">

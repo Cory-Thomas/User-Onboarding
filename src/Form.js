@@ -48,6 +48,7 @@ export default function Form( {values, submit, inputChange, checkboxChange, disa
                     <div>{ errors.name }</div>
                     <div>{ errors.email }</div>
                     <div>{ errors.password }</div>
+                    <div>{ errors.terms }</div>
                 </div>
             </div>
             <div>
