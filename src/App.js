@@ -3,6 +3,7 @@ import Form from './Form';
 import axios from 'axios';
 import * as yup from 'yup';
 import formSchema from './validation/formSchema';
+import cat from "./cat.jpg";
 
 const initialFormValues = {
   name: '',
@@ -109,7 +110,7 @@ function App() {
     })
   }, [formValues])
 
-
+console.log(users)
   return (
     <div>
       <Form
@@ -123,10 +124,21 @@ function App() {
 
       {users.map(user => {
         console.log(user)
+        if ( user.terms === true){
+          return (
+            <div key={user.id}>
+            <img src= {cat} alt="avatar" width="130px" height="130px" />
+            
+            <p>Name: {user.name}  </p>
+            <p>Email: {user.email}</p>
+          </div>
+          )
+        }
         return (
           <div key={user.id}>
-            <img src={user.avatar !== "undefined" ? user.avatar : "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pinterest.com%2Fpin%2F460844974364513647%2F&psig=AOvVaw1UI6t36EzFjcdude_dOyAU&ust=1597960576241000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCODot5qhqOsCFQAAAAAdAAAAABAD"} alt={`avatar of ${user.first_name}`} />
-            <p>Name: {user.first_name}  {user.last_name}</p>
+            <img src= {user.avatar} alt="avatar"  />
+            
+            <p>Name: {user.first_name} {user.last_name} </p>
             <p>Email: {user.email}</p>
           </div>
         )
