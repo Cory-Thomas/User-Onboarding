@@ -6,7 +6,7 @@ describe('Site Test', function() {
     })
 })
 
-describe('Tests', function(){
+describe('Form Input Tests', function(){
     it('types name and checks/compares', function() {
         cy.get('input[name="name"]')
         .type('Cory')
@@ -30,7 +30,7 @@ describe('Tests', function(){
     })
 })
 
-describe('error test', function() {
+describe('Form Error Tests', function() {
      it('enter invalid password', function(){
         cy.get('input[name="password"]')
         .type('ab')
