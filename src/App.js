@@ -10,6 +10,8 @@ const StyledDiv = style.div`
   width: 80%;
   margin: 0 auto;
   background-color: rgba(255,255,255,.6);
+  border-radius: 30px;
+  padding-bottom: 10%;
 `;
 
 const StyledSection = style.section`
