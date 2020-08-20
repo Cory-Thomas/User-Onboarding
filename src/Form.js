@@ -1,4 +1,27 @@
 import React from 'react';
+import style from 'styled-components';
+
+const StyledForm = style.form`
+    width: 30%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 1%;
+
+    div {
+        margin: 2%;
+
+        input{
+            margin-top: 3%;
+        }
+    }
+
+    button {
+        width: 80px;
+        padding: 5px;
+        border-radius: 10%;
+    }
+`;
 
 export default function Form( {values, submit, inputChange, checkboxChange, disabled, errors} ) {
     const onSubmit = event => {
@@ -18,7 +41,7 @@ export default function Form( {values, submit, inputChange, checkboxChange, disa
 
 
     return (
-        <form onSubmit={ onSubmit }>
+        <StyledForm onSubmit={ onSubmit }>
             <div>
                 <button disabled={ disabled }>Submit</button>
                 <div>
@@ -29,7 +52,7 @@ export default function Form( {values, submit, inputChange, checkboxChange, disa
             </div>
             <div>
                 <div>
-                    <label htmlFor="name">Name: </label>
+                    <label htmlFor="name">Name: </label><br />
                     <input
                         value={ values.name }
                         onChange={ onInputChange }
@@ -39,7 +62,7 @@ export default function Form( {values, submit, inputChange, checkboxChange, disa
                     />
                 </div>
                 <div>
-                    <label htmlFor="email">Email: </label>
+                    <label htmlFor="email">Email: </label><br />
                     <input
                         value={ values.email }
                         onChange={ onInputChange }
@@ -49,7 +72,7 @@ export default function Form( {values, submit, inputChange, checkboxChange, disa
                     />
                 </div>
                 <div>
-                    <label htmlFor="password">Password: </label>
+                    <label htmlFor="password">Password: </label><br />
                     <input 
                         value={ values.password }
                         onChange={ onInputChange }
@@ -69,6 +92,6 @@ export default function Form( {values, submit, inputChange, checkboxChange, disa
                     />
                 </div>
             </div>
-        </form>
+        </StyledForm>
     )
 }

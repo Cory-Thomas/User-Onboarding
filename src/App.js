@@ -4,6 +4,40 @@ import axios from 'axios';
 import * as yup from 'yup';
 import formSchema from './validation/formSchema';
 import cat from "./cat.jpg";
+import style from "styled-components";
+
+const StyledDiv = style.div`
+  width: 80%;
+  margin: 0 auto;
+  background-color: rgba(255,255,255,.6);
+`;
+
+const StyledSection = style.section`
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+
+  .container{
+    width: 40%;
+    margin: 2% auto;
+    text-align: center;
+    background-color: skyblue;
+    border-radius: 25px;
+    color: black;
+    padding: 2%;
+  }
+
+  img{
+    padding-bottom: 4%;
+    border-radius: 20%;
+  }
+
+  p{
+    width: 70%;
+    margin: 0 auto;
+  }
+`
 
 const initialFormValues = {
   name: '',
@@ -112,7 +146,7 @@ function App() {
 
 console.log(users)
   return (
-    <div>
+    <StyledDiv>
       <Form
         values={formValues}
         submit={submitForm}
@@ -121,12 +155,12 @@ console.log(users)
         disabled={disabled}
         errors={formErrors}
       />
-
+      <StyledSection>
       {users.map(user => {
         console.log(user)
         if ( user.terms === true){
           return (
-            <div key={user.id}>
+            <div key={user.id} class="container">
             <img src= {cat} alt="avatar" width="130px" height="130px" />
             
             <p>Name: {user.name}  </p>
@@ -135,7 +169,7 @@ console.log(users)
           )
         }
         return (
-          <div key={user.id}>
+          <div key={user.id} class="container">
             <img src= {user.avatar} alt="avatar"  />
             
             <p>Name: {user.first_name} {user.last_name} </p>
@@ -143,7 +177,8 @@ console.log(users)
           </div>
         )
       })}
-    </div>
+      </StyledSection>
+    </StyledDiv>
   );
 };
 
